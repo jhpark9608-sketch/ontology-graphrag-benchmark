@@ -1,0 +1,9 @@
+[
+  {"entity_id":"org:openai","name":"OpenAI","entity_type":"Organization","aliases":["Open AI"]},
+  {"entity_id":"org:microsoft","name":"Microsoft","entity_type":"Organization","aliases":["MSFT","Microsoft Research"]},
+  {"entity_id":"tech:graphrag","name":"GraphRAG","entity_type":"Technology","aliases":["Graph RAG"]},
+  {"entity_id":"concept:knowledge_graph","name":"Knowledge Graph","entity_type":"Concept","aliases":["KG"]},
+  {"entity_id":"method:agentic_rag","name":"Agentic RAG","entity_type":"Method","aliases":["Agentic Retrieval-Augmented Generation"]},
+  {"entity_id":"org:atlas","name":"Atlas","entity_type":"Organization","aliases":["Atlas Labs"]},
+  {"entity_id":"tech:atlas","name":"Atlas","entity_type":"Technology","aliases":["Atlas Engine"]}
+]
