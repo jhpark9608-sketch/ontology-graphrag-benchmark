@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Codex Benchmark Task Result",
+  "type": "object",
+  "required": ["task_id","status","summary","expected_results","tests","files_changed","notes"],
+  "properties": {
+    "task_id": {"type":"string","pattern":"^[0-9]{2}$"},
+    "status": {"enum":["pass","fail"]},
+    "summary": {"type":"string","minLength":1},
+    "expected_results": {"type":"array","items":{"type":"object","required":["id","observed","evidence"],"properties":{"id":{"type":"string"},"observed":{"type":"boolean"},"evidence":{"type":"string","minLength":1}}}},
+    "tests": {"type":"object","required":["command","passed","failed"],"properties":{"command":{"type":"string"},"passed":{"type":"integer","minimum":0},"failed":{"type":"integer","minimum":0}}},
+    "files_changed": {"type":"array","items":{"type":"string"}},
+    "notes": {"type":"string"}
+  }
+}
