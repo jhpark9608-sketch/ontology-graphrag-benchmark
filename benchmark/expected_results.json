@@ -1,0 +1,65 @@
+{
+  "01": {"title":"Codebase map","test_file":"tests/task_01_codebase_map.py","expected":[
+    {"id":"T01-R1","description":"Extract the ordered query path pipeline.answer_question -> planner.plan_query -> retrieval.hybrid_retrieve -> agentic.run_bounded_loop -> provenance.verify_claims."},
+    {"id":"T01-R2","description":"Identify planning/retrieval/agentic/provenance as separate stages and state that the benchmark has no external LLM API runtime dependency."},
+    {"id":"T01-R3","description":"Do not modify source files; only benchmark_output/task_01_result.json may be created."}]},
+  "02": {"title":"Structured extraction","test_file":"tests/task_02_structured_entity_extraction.py","expected":[
+    {"id":"T02-R1","description":"A valid entity record is returned with canonical id and bounded confidence."},
+    {"id":"T02-R2","description":"Missing required evidence fields are rejected."},
+    {"id":"T02-R3","description":"Unknown entity and relation types are rejected rather than coerced."},
+    {"id":"T02-R4","description":"Confidence outside [0,1] is rejected."},
+    {"id":"T02-R5","description":"All 5 Task 02 tests pass."}]},
+  "03": {"title":"Ontology validation","test_file":"tests/task_03_ontology_validation.py","expected":[
+    {"id":"T03-R1","description":"Organization-develops-Technology is valid."},
+    {"id":"T03-R2","description":"Relation alias builds is repairable to develops."},
+    {"id":"T03-R3","description":"Invalid domain and range are rejected with explicit reasons."},
+    {"id":"T03-R4","description":"Unknown class/relation are rejected."},
+    {"id":"T03-R5","description":"All 6 Task 03 tests pass."}]},
+  "04": {"title":"Open-world entity resolution","test_file":"tests/task_04_open_world_entity_resolution.py","expected":[
+    {"id":"T04-R1","description":"OpenAI resolves exactly to org:openai."},
+    {"id":"T04-R2","description":"MSFT resolves as an alias to org:microsoft."},
+    {"id":"T04-R3","description":"Atlas is ambiguous between org:atlas and tech:atlas and has no selected id."},
+    {"id":"T04-R4","description":"NeoSemanticX remains unresolved with no fabricated id."},
+    {"id":"T04-R5","description":"All 5 Task 04 tests pass."}]},
+  "05": {"title":"Hybrid retrieval","test_file":"tests/task_05_hybrid_retrieval.py","expected":[
+    {"id":"T05-R1","description":"Vector and graph raw scores are independently normalized before fusion."},
+    {"id":"T05-R2","description":"Shared evidence e2 is deduplicated and ranked first with equal weights."},
+    {"id":"T05-R3","description":"Each result exposes normalized vector score, normalized graph score, and fused score."},
+    {"id":"T05-R4","description":"Vector-only and graph-only fallbacks are deterministic."},
+    {"id":"T05-R5","description":"All 5 Task 05 tests pass."}]},
+  "06": {"title":"Query router and planner","test_file":"tests/task_06_query_router_and_planner.py","expected":[
+    {"id":"T06-R1","description":"Definition query routes to local_semantic."},
+    {"id":"T06-R2","description":"Direct relationship query routes to local_graph."},
+    {"id":"T06-R3","description":"Corpus-wide theme query routes to global_community."},
+    {"id":"T06-R4","description":"Compositional relation query routes to multi_hop."},
+    {"id":"T06-R5","description":"Plans are deterministic, structured, and max_steps is between 1 and 4."},
+    {"id":"T06-R6","description":"All Task 06 tests pass."}]},
+  "07": {"title":"Bounded Agentic GraphRAG","test_file":"tests/task_07_bounded_agentic_graphrag.py","expected":[
+    {"id":"T07-R1","description":"Sufficient evidence stops after one retrieval."},
+    {"id":"T07-R2","description":"Insufficient evidence may reformulate once and stop when sufficient."},
+    {"id":"T07-R3","description":"Contradictory evidence may trigger a bounded reformulation."},
+    {"id":"T07-R4","description":"A repeated query terminates with repeated_query instead of looping."},
+    {"id":"T07-R5","description":"Hard max_steps prevents more than 3 retrievals in the fixture."},
+    {"id":"T07-R6","description":"All 5 Task 07 tests pass."}]},
+  "08": {"title":"Provenance verification","test_file":"tests/task_08_provenance_claim_verification.py","expected":[
+    {"id":"T08-R1","description":"c1 is supported and includes evidence e1 plus graph path provenance."},
+    {"id":"T08-R2","description":"c2 is partially_supported."},
+    {"id":"T08-R3","description":"c3 is contradicted."},
+    {"id":"T08-R4","description":"c4 is unsupported and has no evidence ids."},
+    {"id":"T08-R5","description":"All 4 Task 08 tests pass."}]},
+  "09": {"title":"Ontology induction and alignment","test_file":"tests/task_09_ontology_induction_alignment.py","expected":[
+    {"id":"T09-R1","description":"Input ontology remains unchanged after proposal generation."},
+    {"id":"T09-R2","description":"Organization/uses are existing; Org/utilizes map through aliases."},
+    {"id":"T09-R3","description":"ResearchMethod is a reviewable new_candidate with confidence and examples."},
+    {"id":"T09-R4","description":"Graph is preserved as a conflict with an explicit reason."},
+    {"id":"T09-R5","description":"apply_automatically is false."},
+    {"id":"T09-R6","description":"All 5 Task 09 tests pass."}]},
+  "10": {"title":"End-to-end evaluation","test_file":"tests/task_10_end_to_end_evaluation.py","expected":[
+    {"id":"T10-R1","description":"retrieval_recall = 0.75."},
+    {"id":"T10-R2","description":"graph_path_validity = 2/3, excluding None."},
+    {"id":"T10-R3","description":"ontology_violation_rate = 0.25."},
+    {"id":"T10-R4","description":"provenance_coverage = 0.75."},
+    {"id":"T10-R5","description":"mean_latency_ms = 150 and total_tokens = 1000."},
+    {"id":"T10-R6","description":"failure_breakdown = {success:2,retrieval:1,reasoning:1}."},
+    {"id":"T10-R7","description":"All 6 Task 10 tests pass."}]}
+}
