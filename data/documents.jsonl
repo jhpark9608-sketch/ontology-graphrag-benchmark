@@ -1,0 +1,5 @@
+{"document_id": "d1", "text": "GraphRAG combines knowledge graphs with retrieval-augmented generation for complex corpus queries."}
+{"document_id": "d2", "text": "Microsoft Research developed GraphRAG and supports local, global, and DRIFT-style search."}
+{"document_id": "d3", "text": "Agentic RAG iteratively plans retrieval, inspects evidence, and may reformulate a query."}
+{"document_id": "d4", "text": "Ontologies constrain entity classes and relation semantics such as domain and range."}
+{"document_id": "d5", "text": "Claim-level provenance links generated claims to source spans or graph paths."}
