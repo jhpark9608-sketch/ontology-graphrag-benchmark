@@ -1,0 +1,3 @@
+task_id,task_name,condition,replicate,run_order,start_commit,start_time,end_time,uncached_input_tokens,cached_input_tokens,output_tokens,credits,wall_time_s,sol_calls,task_success,tests_passed,tests_total,result_artifact_valid,notes
+01,Codebase map,baseline_sol_medium,1,1,,,,,,,,,,,,,,
+01,Codebase map,agent_routing_gpt,1,2,,,,,,,,,,,,,,
