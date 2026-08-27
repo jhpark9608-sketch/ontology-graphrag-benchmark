@@ -1,0 +1,10 @@
+{
+  "classes": ["Organization","Technology","Concept","Paper","Method"],
+  "class_aliases": {"Org":"Organization","Technique":"Method"},
+  "relations": {
+    "develops": {"domain":["Organization"],"range":["Technology"]},
+    "uses": {"domain":["Technology","Method"],"range":["Concept","Technology","Method"]},
+    "describes": {"domain":["Paper"],"range":["Technology","Method","Concept"]}
+  },
+  "relation_aliases": {"builds":"develops","utilizes":"uses"}
+}
