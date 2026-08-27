@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ontology-graphrag-benchmark"
+version = "0.1.0"
+description = "Deterministic benchmark target for Codex routing experiments on ontology-aware GraphRAG tasks."
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+python_files = ["task_*.py"]
