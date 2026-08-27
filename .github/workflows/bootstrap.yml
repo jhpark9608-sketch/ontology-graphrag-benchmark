@@ -1,0 +1,32 @@
+name: Bootstrap benchmark project
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - project.tar.gz.b64
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    if: github.event.head_commit.message == 'chore: bootstrap benchmark archive'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Expand benchmark archive
+        run: |
+          base64 --decode project.tar.gz.b64 > /tmp/project.tar.gz
+          tar -xzf /tmp/project.tar.gz -C .
+
+      - name: Commit benchmark baseline
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: add ontology GraphRAG Codex benchmark baseline"
+          git push
